@@ -21,12 +21,14 @@
 
 常见文件名示例：
 - Windows 64 位：`cnet-windows-x64-v0.1.1.zip`
+- Windows ARM64：`cnet-windows-arm64-v0.1.1.zip`
 - Linux 64 位：`cnet-linux-x64-v0.1.1.tar.gz`
 - macOS Intel：`cnet-macos-intel-v0.1.1.tar.gz`
 - macOS Apple Silicon：`cnet-macos-apple-silicon-v0.1.1.tar.gz`
 
 如果你不确定自己电脑是什么架构，可以简单按下面理解：
 - 大部分普通 Windows 电脑：下载 `cnet-windows-x64`
+- Windows on ARM 设备：下载 `cnet-windows-arm64`
 - 大部分普通 Intel / AMD Linux 电脑：下载 `cnet-linux-x64`
 - 较老的 32 位 Linux：下载 `cnet-linux-x86`
 - Apple M1 / M2 / M3 Mac：下载 `cnet-macos-apple-silicon`
@@ -227,6 +229,7 @@ cnet setup
 ### 4. Windows、Linux、macOS 都能用吗？
 可以。这个项目会为以下平台自动打包发布：
 - Windows x64
+- Windows ARM64
 - Linux x86 / x64 / ARM64 / ARMv7
 - macOS Intel
 - macOS Apple Silicon
