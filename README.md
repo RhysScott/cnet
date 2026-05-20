@@ -20,18 +20,18 @@
 去这个项目的 **Releases** 页面，下载适合你电脑系统的压缩包。
 
 常见文件名示例：
-- Windows 64 位：`cnet-v0.1.0-x86_64-pc-windows-msvc.zip`
-- Linux 64 位：`cnet-v0.1.0-x86_64-unknown-linux-gnu.tar.gz`
-- macOS Intel：`cnet-v0.1.0-x86_64-apple-darwin.tar.gz`
-- macOS Apple Silicon：`cnet-v0.1.0-aarch64-apple-darwin.tar.gz`
+- Windows 64 位：`cnet-windows-x64-v0.1.1.zip`
+- Linux 64 位：`cnet-linux-x64-v0.1.1.tar.gz`
+- macOS Intel：`cnet-macos-intel-v0.1.1.tar.gz`
+- macOS Apple Silicon：`cnet-macos-apple-silicon-v0.1.1.tar.gz`
 
 如果你不确定自己电脑是什么架构，可以简单按下面理解：
-- 大部分普通 Windows 电脑：下载 `x86_64-pc-windows-msvc`
-- 大部分普通 Intel / AMD Linux 电脑：下载 `x86_64-unknown-linux-gnu`
-- 较老的 32 位 Linux：下载 `i686-unknown-linux-gnu`
-- Apple M1 / M2 / M3 Mac：下载 `aarch64-apple-darwin`
-- Intel 芯片 Mac：下载 `x86_64-apple-darwin`
-- ARM Linux 设备：按设备情况选择 `aarch64-unknown-linux-gnu` 或 `armv7-unknown-linux-gnueabihf`
+- 大部分普通 Windows 电脑：下载 `cnet-windows-x64`
+- 大部分普通 Intel / AMD Linux 电脑：下载 `cnet-linux-x64`
+- 较老的 32 位 Linux：下载 `cnet-linux-x86`
+- Apple M1 / M2 / M3 Mac：下载 `cnet-macos-apple-silicon`
+- Intel 芯片 Mac：下载 `cnet-macos-intel`
+- ARM Linux 设备：按设备情况选择 `cnet-linux-arm64` 或 `cnet-linux-armv7`
 
 ---
 

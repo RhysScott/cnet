@@ -21,42 +21,49 @@ jobs:
             target: x86_64-pc-windows-msvc
             archive_ext: zip
             binary_name: cnet.exe
+            package_name: cnet-windows-x64
             use_cross: false
           - label: linux-x64
             os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-linux-x64
             use_cross: false
           - label: linux-x86
             os: ubuntu-latest
             target: i686-unknown-linux-gnu
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-linux-x86
             use_cross: true
           - label: linux-arm64
             os: ubuntu-latest
             target: aarch64-unknown-linux-gnu
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-linux-arm64
             use_cross: true
           - label: linux-armv7
             os: ubuntu-latest
             target: armv7-unknown-linux-gnueabihf
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-linux-armv7
             use_cross: true
           - label: macos-intel
             os: macos-13
             target: x86_64-apple-darwin
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-macos-intel
             use_cross: false
           - label: macos-apple-silicon
             os: macos-14
             target: aarch64-apple-darwin
             archive_ext: tar.gz
             binary_name: cnet
+            package_name: cnet-macos-apple-silicon
             use_cross: false
 
     steps:
@@ -85,7 +92,7 @@ jobs:
         shell: bash
         run: |
           VERSION="${GITHUB_REF_NAME}"
-          ARCHIVE_BASENAME="cnet-${VERSION}-${{ matrix.target }}"
+          ARCHIVE_BASENAME="${{ matrix.package_name }}-${VERSION}"
           PACKAGE_DIR="dist/${ARCHIVE_BASENAME}"
           mkdir -p "$PACKAGE_DIR"
           cp "target/${{ matrix.target }}/release/${{ matrix.binary_name }}" "$PACKAGE_DIR/"
