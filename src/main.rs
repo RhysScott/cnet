@@ -141,7 +141,7 @@ async fn setup_config() -> Result<StoredConfig, Box<dyn Error>> {
 }
 
 fn prompt_username(existing: Option<&StoredConfig>) -> Result<String, Box<dyn Error>> {
-    let mut prompt = Input::<String>::new().with_prompt("学号");
+    let mut prompt = Input::<String>::new().with_prompt("账号");
     if let Some(current) = existing {
         prompt = prompt.allow_empty(true).with_initial_text(&current.username);
     }
@@ -237,10 +237,13 @@ async fn fetch_packages(username: &str, password: &str) -> Result<Vec<String>, B
 async fn connect_network(config: &StoredConfig) -> Result<(), Box<dyn Error>> {
     let client = client::create_client()?;
     client::login(&client, &config.username, &config.password).await?;
+    let info = client::get_user_info(&client).await?;
     let response = client::online(&client, &config.package).await?;
 
     if response.status {
         println!("认证成功: {}", response.hint);
+        println!("IP: {}", info.data.ip);
+        println!("套餐: {}", config.package);
     } else {
         println!("认证失败: {}", response.hint);
     }
@@ -256,6 +259,7 @@ async fn disconnect_network(config: &StoredConfig) -> Result<(), Box<dyn Error>>
 
     if response.status {
         println!("下线成功: {}", response.message);
+        println!("IP: {}", info.data.ip);
     } else {
         println!("下线失败: {}", response.message);
     }
