@@ -30,12 +30,29 @@ enum Commands {
     AddToPath,
 }
 
+#[cfg(windows)]
+fn pause_console() {
+    use std::io;
+    println!("\n按回车键关闭窗口...");
+    let mut buf = String::new();
+    let _ = io::stdin().read_line(&mut buf);
+}
+
+#[cfg(not(windows))]
+fn pause_console() {}
+
 #[tokio::main]
 async fn main() {
-    if let Err(err) = run().await {
-        eprintln!("错误: {err}");
-        std::process::exit(1);
-    }
+    let exit_code = match run().await {
+        Ok(()) => 0,
+        Err(err) => {
+            eprintln!("错误: {err}");
+            1
+        }
+    };
+
+    pause_console();
+    std::process::exit(exit_code);
 }
 
 async fn run() -> Result<(), Box<dyn Error>> {
